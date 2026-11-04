@@ -24,7 +24,7 @@
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/yourusername/finance-app.git
+git clone https://github.com/Pavel-Shcherbo/finance-app.git
 
 # Перейти в директорию
 cd finance-app
