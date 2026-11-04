@@ -17,8 +17,8 @@ Node.js, Express 5, plain HTML / CSS / JavaScript on the front end
 ## Run locally
 
 ```bash
-git clone https://github.com/Pavel-Shcherbo/finance-app.git
-cd finance-app
+git clone https://github.com/Pavel-Shcherbo/activity-planner.git
+cd activity-planner
 npm install
 npm start
 ```
