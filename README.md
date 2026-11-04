@@ -1,70 +1,44 @@
-# 💰 Finance App
+# Activity Planner
 
-Персональное приложение для управления финансами и отслеживания расходов.
+Small web app for planning extracurricular activities on a weekly timetable. You add an activity with a name, a weekday, a start time and a duration, and it appears in a schedule table. Two activities cannot start at the same time on the same day. The interface is in Russian.
 
-## 🚀 Особенности
+## Features
 
-- ✅ Добавление и удаление финансовых активностей
-- ✅ Категоризация доходов и расходов  
-- ✅ Просмотр истории транзакций
-- ✅ Подсчет общего баланса
-- ✅ Адаптивный дизайн
-- ✅ Современный интерфейс
+- Add and delete activities
+- Weekly schedule table with time slots from 09:00 to 20:30 in 30-minute steps
+- Conflict check: an activity that starts at an already used day and time is rejected by the server
+- Falls back to data saved in the browser (localStorage) if the server cannot be reached
+- Health check endpoint for hosting platforms
 
-## 🛠 Технологии
+## Stack
 
-- **Backend**: Node.js + Express
-- **Database**: MongoDB (через Mongoose)
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Стили**: Modern CSS с градиентами и анимациями
+Node.js, Express 5, plain HTML / CSS / JavaScript on the front end
 
-## 📦 Установка и запуск
-
-### Локально
+## Run locally
 
 ```bash
-# Клонировать репозиторий
 git clone https://github.com/Pavel-Shcherbo/finance-app.git
-
-# Перейти в директорию
 cd finance-app
-
-# Установить зависимости  
 npm install
-
-# Запустить приложение
 npm start
 ```
 
-Приложение будет доступно по адресу: `http://localhost:3000`
+The app opens at http://localhost:3000 (set `PORT` and `HOST` to change it).
 
-### На TimeWeb Cloud Apps
+## API
 
-1. Форкните этот репозиторий
-2. Перейдите в [TimeWeb Cloud Apps](https://timeweb.cloud/services/apps)
-3. Выберите **Backend → Express**
-4. Подключите ваш GitHub репозиторий
-5. Готово! Приложение автоматически развернется
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | `/api/activities` | list all activities |
+| POST | `/api/activities` | add an activity (`name`, `day`, `time`, `duration`) |
+| DELETE | `/api/activities/:id` | delete an activity |
+| GET | `/health` | status and uptime |
 
-## 🎯 API Endpoints
+## Notes
 
-- `GET /` - Главная страница
-- `GET /api/activities` - Получить все активности
-- `POST /api/activities` - Добавить новую активность
-- `DELETE /api/activities/:id` - Удалить активность
+- Activities are kept in server memory and are lost when the server restarts. Mongoose is listed in `package.json` but is not used yet.
+- Deployed on TimeWeb Cloud Apps (Backend, Express).
 
-## 📱 Скриншоты
+## Author
 
-Современный интерфейс с градиентным дизайном и удобной навигацией.
-
-## 🔧 Конфигурация
-
-Приложение использует MongoDB для хранения данных. При деплое на TimeWeb Cloud Apps база данных настраивается автоматически.
-
-## 📄 Лицензия
-
-MIT License - используйте свободно для личных и коммерческих проектов.
-
----
-
-**Создано с ❤️ для управления личными финансами** 
+Pavel Shcherbo
